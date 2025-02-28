@@ -1,0 +1,53 @@
+<div class="sidebar" th:fragment="header">
+    <div class="logo-details d-flex justify-content-between align-items-center">
+        <div class="logo-content me-2 d-flex align-items-center">
+            <img th:src="@{/img/logo-draw.png}" alt="Logo" class="logo me-2">
+            <div class="logo_name">Ghost Technology</div>
+        </div>
+        <i class="bi bi-list" id="btn"></i>
+    </div>
+
+    <ul class="nav-list pt-2">
+        <!-- Menu de Navegação -->
+        <li><a href="index"><i class="bi bi-grid"></i><span class="links_name">Dashboard</span></a></li>
+
+        <!-- Menu Finanças com Submenu -->
+        <li class="submenu">
+            <a href="javascript:void(0)" class="submenu-toggle"><i class="bi bi-wallet"></i><span
+                    class="links_name">Finanças</span>
+                <i class="bi bi-chevron-down submenu-arrow"></i>
+            </a>
+            <ul class="submenu-list">
+                <li><a href="#">Adicionar Transação</a></li>
+                <li><a href="#">Visualizar Transações</a></li>
+                <li><a href="#">Relatórios Financeiros</a></li>
+            </ul>
+        </li>
+
+        <!-- Menu Relatórios com Submenu -->
+        <li class="submenu">
+            <a href="javascript:void(0)" class="submenu-toggle"><i class="bi bi-bar-chart"></i><span
+                    class="links_name">Relatórios</span>
+                <i class="bi bi-chevron-down submenu-arrow"></i>
+            </a>
+            <ul class="submenu-list">
+                <li><a href="#">Relatório Mensal</a></li>
+                <li><a href="#">Relatório Anual</a></li>
+                <li><a href="#">Relatório Personalizado</a></li>
+            </ul>
+        </li>
+
+        <li><a href="#"><i class="bi bi-pie-chart"></i><span class="links_name">Análises</span></a></li>
+        <li><a href="#"><i class="bi bi-gear"></i><span class="links_name">Configurações</span></a></li>
+
+        <li class="profile">
+            <div class="profile-details d-flex align-items-center">
+                <div class="name_job">
+                    <div class="name">Gabriel Toledo</div>
+                    <div class="job">Frontend Developer</div>
+                </div>
+            </div>
+            <i class="bi bi-box-arrow-right" id="log_out"></i>
+        </li>
+    </ul>
+</div>

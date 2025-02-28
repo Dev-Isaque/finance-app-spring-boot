@@ -1,0 +1,10 @@
+C:\Users\Isaque\Documents\GitHub\finance-app-spring-boot\src\main\java\com\isaquesoares\financeapp\config\Instantiation.java
+C:\Users\Isaque\Documents\GitHub\finance-app-spring-boot\src\main\java\com\isaquesoares\financeapp\config\SecurityConfig.java
+C:\Users\Isaque\Documents\GitHub\finance-app-spring-boot\src\main\java\com\isaquesoares\financeapp\controllers\PageController.java
+C:\Users\Isaque\Documents\GitHub\finance-app-spring-boot\src\main\java\com\isaquesoares\financeapp\FinanceappApplication.java
+C:\Users\Isaque\Documents\GitHub\finance-app-spring-boot\src\main\java\com\isaquesoares\financeapp\model\dto\LoginResponseDTO.java
+C:\Users\Isaque\Documents\GitHub\finance-app-spring-boot\src\main\java\com\isaquesoares\financeapp\model\dto\UserDTO.java
+C:\Users\Isaque\Documents\GitHub\finance-app-spring-boot\src\main\java\com\isaquesoares\financeapp\model\User.java
+C:\Users\Isaque\Documents\GitHub\finance-app-spring-boot\src\main\java\com\isaquesoares\financeapp\repository\UserRepository.java
+C:\Users\Isaque\Documents\GitHub\finance-app-spring-boot\src\main\java\com\isaquesoares\financeapp\resources\UserResource.java
+C:\Users\Isaque\Documents\GitHub\finance-app-spring-boot\src\main\java\com\isaquesoares\financeapp\services\UserService.java

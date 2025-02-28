@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head th:replace="fragments/head :: head"></head>
+
+<body class="bg-white">
+
+    <header th:insert="fragments/header :: header"></header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mt-5">
+        <h1 class="text-center text-3xl font-bold">Bem-vindo à Página Inicial</h1>
+        <p class="text-center mt-3">Esta é a página principal do seu sistema de controle financeiro.</p>
+        <div class="text-center mt-4">
+            <button class="btn btn-primary">Adicionar Transação</button>
+            <button class="btn btn-secondary">Ver Relatórios</button>
+        </div>
+    </main>
+
+    <script th:src="@{/js/sidebar.js}"></script>
+</body>
+
+</html>

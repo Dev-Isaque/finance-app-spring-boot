@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head th:replace="fragments/head :: head"></head>
+
+<body class="bg-white">
+
+    <header th:insert="fragments/header :: header"></header>
+
+    <main class="container mt-5">
+        <h2 class="text-center">Dashboard Financeiro</h2>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="card bg-success text-white">
+                    <div class="card-body">
+                        <h5>Saldo Atual</h5>
+                        <h3 th:text="${saldoAtual}"></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-primary text-white">
+                    <div class="card-body">
+                        <h5>Receitas do Mês</h5>
+                        <h3 th:text="${receitaMes}"></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-danger text-white">
+                    <div class="card-body">
+                        <h5>Despesas do Mês</h5>
+                        <h3 th:text="${despesaMes}"></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h4>Receitas vs Despesas</h4>
+                <canvas id="graficoBarras"></canvas>
+            </div>
+            <div class="col-md-6">
+                <h4>Distribuição de Gastos</h4>
+                <canvas id="graficoPizza"></canvas>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <h4>Saldo ao Longo dos Meses</h4>
+                <canvas id="graficoLinha"></canvas>
+            </div>
+        </div>
+    </main>
+
+    <script th:inline="javascript">
+        var receitaMes = /*[[${ receitaMes }]]*/ 0;
+        var despesaMes = /*[[${ despesaMes }]]*/ 0;
+        var categorias = /*[[${ categorias }]]*/ [];
+        var valoresCategorias = /*[[${ valoresCategorias }]]*/ [];
+        var meses = /*[[${ meses }]]*/ [];
+        var saldoMeses = /*[[${ saldoMeses }]]*/ [];
+
+        document.addEventListener("DOMContentLoaded", function () {
+            new Chart(document.getElementById('graficoBarras'), {
+                type: 'bar',
+                data: {
+                    labels: ['Receitas', 'Despesas'],
+                    datasets: [{
+                        label: 'Valores em R$',
+                        data: [parseFloat(receitaMes), parseFloat(despesaMes)],
+                        backgroundColor: ['green', 'red']
+                    }]
+                }
+            });
+
+            new Chart(document.getElementById('graficoPizza'), {
+                type: 'pie',
+                data: {
+                    labels: categorias,
+                    datasets: [{
+                        data: valoresCategorias,
+                        backgroundColor: ['blue', 'red', 'yellow', 'green', 'purple']
+                    }]
+                }
+            });
+
+            new Chart(document.getElementById('graficoLinha'), {
+                type: 'line',
+                data: {
+                    labels: meses,
+                    datasets: [{
+                        label: 'Saldo Mensal',
+                        data: saldoMeses,
+                        borderColor: 'blue',
+                        fill: false
+                    }]
+                }
+            });
+        });
+    </script>
+    <script th:src="@{/js/sidebar.js}"></script>
+</body>
+
+</html>

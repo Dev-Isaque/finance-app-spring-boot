@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 70px;
+    height: 100%;
+    background: #11101d;
+    padding: 10px;
+    transition: width 0.4s;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between; 
+    z-index: 10;
+}
+
+.sidebar.open {
+    width: 250px;
+}
+
+/* ===== LOGO + BOTÃO MENU ===== */
+.sidebar .logo-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    color: white;
+}
+
+.sidebar .logo {
+    width: 50px;
+    height: auto;
+    display: none;
+}
+
+.sidebar.open .logo {
+    display: inline;
+}
+
+.sidebar .logo_name {
+    display: none;
+}
+
+.sidebar.open .logo_name {
+    display: inline;
+}
+
+.sidebar #btn {
+    cursor: pointer;
+    font-size: 24px;
+    margin-left: auto;
+}
+
+/* ===== MENU LIST ===== */
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1; 
+}
+
+.nav-list li {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+}
+
+.nav-list li:hover {
+    background: #1d1b31;
+}
+
+.nav-list li i {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.nav-list .links_name {
+    display: none;
+}
+
+.sidebar.open .links_name {
+    display: inline;
+}
+
+/* ===== SUBMENU ===== */
+.submenu-list {
+    list-style: none;
+    padding-left: 20px;
+    font-size: 0.9rem;
+    display: none;
+}
+
+.submenu-list.show {
+    display: block; 
+}
+
+.submenu-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.submenu-arrow {
+    transition: transform 0.3s ease;
+}
+
+.submenu-arrow.rotate {
+    transform: rotate(180deg);
+}
+
+/* ===== PERFIL FIXADO ABAIXO ===== */
+.profile {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    color: white;
+    cursor: pointer;
+    background: #1d1b31;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.profile .profile-details {
+    display: flex;
+    align-items: center;
+}
+
+.profile .name_job {
+    display: none;
+}
+
+.sidebar.open .name_job {
+    display: block;
+}
+
+.profile .name {
+    font-weight: 600;
+}
+
+.profile .job {
+    font-size: 12px;
+    color: #aaa;
+}
+
+.profile i {
+    font-size: 24px;
+    margin-left: auto;
+}
+
+/* ===== CONTEÚDO PRINCIPAL ===== */
+main.container {
+    position: relative;
+    margin-left: 75px;
+    transition: margin-left 0.4s ease-in-out;
+    padding: 20px;
+}
+
+/* Quando o sidebar estiver expandido */
+.sidebar.open ~ main.container {
+    margin-left: 250px;
+}
+
+/* Ajusta os gráficos para não ultrapassarem os limites */
+canvas {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Garante que os gráficos fiquem dentro do espaço disponível */
+.col-md-6, .col-md-12 {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+    .home-section {
+        margin-left: 70px;
+    }
+
+    .sidebar.open ~ .home-section {
+        margin-left: 250px;
+    }
+}

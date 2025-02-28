@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+
+<body class="bg-gray-900 d-flex justify-content-center align-items-center vh-100">
+
+    <div class="bg-gray-800 p-4 rounded-lg shadow-lg w-96 text-center">
+        <div class="mb-1">
+            <img th:src="@{/img/logo-draw.png}" alt="Logo" class="mx-auto w-25 h-25">
+        </div>
+
+        <h3 class="text-white text-2xl mb-2">Ghost Technology</h3>
+        <p class="text-gray-400 mb-2">Login</p>
+
+        <form>
+            <div class="mb-3 text-left">
+                <label for="email" class="text-gray-300">E-mail</label>
+                <input type="text" id="email" 
+                    class="w-full bg-gray-700 text-white rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                    placeholder="E-mail">
+            </div>
+            <div class="mb-3 text-left">
+                <label for="password" class="text-gray-300">Senha</label>
+                <input type="password" id="password" 
+                    class="w-full bg-gray-700 text-white rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                    placeholder="Digite sua senha">
+            </div>
+            <div class="d-flex justify-content-end mb-2">
+                <a href="/esqueci-senha" class="text-blue-400 hover:underline text-sm">Esqueci minha senha</a>
+            </div>
+            
+            <button type="button" class="btn btn-primary w-40" onclick="login()">Entrar</button>
+
+            <p class="text-gray-400 mt-2">
+                Ainda não tem uma conta?
+                <a href="/register" class="text-blue-400 hover:underline">Cadastre-se</a>
+            </p>
+        </form>
+
+        <div class="text-gray-400 mt-3">OR</div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Script customizado -->
+    <script th:src="@{/js/auth.js}"></script>
+</body>
+
+</html>
