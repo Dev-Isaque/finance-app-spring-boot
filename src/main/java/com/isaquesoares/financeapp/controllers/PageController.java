@@ -38,4 +38,10 @@ public class PageController {
         model.addAttribute("title", "Adiconar Transação - FinanceApp");
         return "adicionar-transacao";
     }
+
+    @GetMapping("/visualizar-transacao")
+    public String showVisualizarTransacaoPage(Model model) {
+        model.addAttribute("title", "Visualizar Transação - FinanceApp");
+        return "visualizar-transacao";
+    }
 }

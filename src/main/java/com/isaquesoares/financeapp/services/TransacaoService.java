@@ -1,10 +1,11 @@
 package com.isaquesoares.financeapp.services;
 
-import com.isaquesoares.financeapp.model.Transacao;
-import com.isaquesoares.financeapp.repository.TransacaoRepository;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.isaquesoares.financeapp.model.Transacao;
+import com.isaquesoares.financeapp.repository.TransacaoRepository;
 
 @Service
 public class TransacaoService {
@@ -19,7 +20,12 @@ public class TransacaoService {
         return transacaoRepository.save(transacao);
     }
 
-    public List<Transacao> listarTodas() {
-        return transacaoRepository.findAll();
+    public List<Transacao> listarTodas(Long userId) {
+        return transacaoRepository.findByUsuario_Id(userId);
     }
+
+    public deletarService(Transacao Transacao) {
+        return transacaoRepository.delete(Transacao);(transacao);
+    }
+
 }

@@ -1,13 +1,16 @@
 package com.isaquesoares.financeapp.resources;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.isaquesoares.financeapp.model.Transacao;
@@ -62,4 +65,25 @@ public class TransacaoResource {
         response.put("message", "Transação cadastrada com sucesso!");
         return ResponseEntity.ok(response);
     }
+
+    @GetMapping("/listar-transacoes")
+    public ResponseEntity<List<Transacao>> listarTransacoes(@RequestParam Long userId) {
+        List<Transacao> transacoes = transacaoService.listarTodas(userId);
+
+        if (transacoes.isEmpty()) {
+            return ResponseEntity.noContent().build(); // Retorna 204 se não houver transações
+        }
+        return ResponseEntity.ok(transacoes);
+    }
+
+    @GetMapping("/deletar-transacao")
+    public ResponseEntity<List<Transacao>> deletarTransacao(@RequestParam Long userId) {
+        List<Transacao> transacoes = transacaoService.listarTodas(userId);
+
+        if (transacoes.isEmpty()) {
+            return ResponseEntity.noContent().build(); // Retorna 204 se não houver transações
+        }
+        return ResponseEntity.ok(transacoes);
+    }
+
 }
