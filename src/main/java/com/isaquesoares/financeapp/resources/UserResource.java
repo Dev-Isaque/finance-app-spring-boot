@@ -6,11 +6,18 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.isaquesoares.financeapp.model.User;
-import com.isaquesoares.financeapp.model.dto.UserDTO;
 import com.isaquesoares.financeapp.model.dto.LoginResponseDTO;
+import com.isaquesoares.financeapp.model.dto.UserDTO;
 import com.isaquesoares.financeapp.services.UserService;
 
 @RestController
@@ -66,6 +73,17 @@ public class UserResource {
         response.put("id", user.getId());
 
         return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/obter-usuario")
+    public ResponseEntity<UserDTO> obterUsuario(@RequestParam Long userId) {
+        User user = service.findById(userId);
+        if (user == null) {
+            return ResponseEntity.notFound().build(); // Retorna 404 se o usuário não for encontrado
+        }
+
+        UserDTO userDTO = new UserDTO(user);
+        return ResponseEntity.ok(userDTO); // Retorna o DTO com os dados do usuário
     }
 
 }

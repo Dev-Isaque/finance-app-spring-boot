@@ -40,7 +40,8 @@ public class UserService {
 
         User newUser = new User(
                 null,
-                userDTO.getName(),
+                userDTO.getFirstName(),
+                userDTO.getLastName(),
                 userDTO.getCpf(),
                 userDTO.getDataNasc(),
                 userDTO.getSexo(),

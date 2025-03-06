@@ -24,8 +24,12 @@ public class TransacaoService {
         return transacaoRepository.findByUsuario_Id(userId);
     }
 
-    public deletarService(Transacao Transacao) {
-        return transacaoRepository.delete(Transacao);(transacao);
+    public boolean deletarTransacao(Long id) {
+        if (transacaoRepository.existsById(id)) {
+            transacaoRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 
 }

@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -76,14 +77,14 @@ public class TransacaoResource {
         return ResponseEntity.ok(transacoes);
     }
 
-    @GetMapping("/deletar-transacao")
-    public ResponseEntity<List<Transacao>> deletarTransacao(@RequestParam Long userId) {
-        List<Transacao> transacoes = transacaoService.listarTodas(userId);
-
-        if (transacoes.isEmpty()) {
-            return ResponseEntity.noContent().build(); // Retorna 204 se não houver transações
+    @DeleteMapping("/deletar-transacao")
+    public ResponseEntity<Void> deletarTransacao(@RequestParam Long transacaoId) {
+        boolean deletado = transacaoService.deletarTransacao(transacaoId);
+        if (!deletado) {
+            return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(transacoes);
+
+        return ResponseEntity.noContent().build();
     }
 
 }

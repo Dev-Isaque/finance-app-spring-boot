@@ -13,7 +13,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class UserDTO {
     private Long id;
-    private String name;
+    private String firstName;
+    private String lastName;
     private String cpf;
     private String dataNasc;
     private String sexo;
@@ -27,7 +28,8 @@ public class UserDTO {
 
     public UserDTO(User user) {
         this.id = user.getId();
-        this.name = user.getName();
+        this.firstName = user.getFirstName();
+        this.lastName = user.getLastName();
         this.cpf = user.getCpf();
         this.dataNasc = user.getDataNasc();
         this.sexo = user.getSexo();

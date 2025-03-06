@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="components/head :: head">
+</head>
+
+<body class="bg-white">
+
+    <header th:insert="components/header :: header"></header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mt-5">
+        <p class="text-center mt-3">Bem-vindo, <span class="nomeUsuario">Usuário</span>!</p>
+        <p class="emailUsuario d-none"></p> 
+        <p class="telefoneUsuario d-none"></p> 
+
+        <h1 class="text-center text-3xl font-bold">Bem-vindo à Página Inicial</h1>
+        <p class="text-center mt-3">Esta é a página principal do seu sistema de controle financeiro.</p>
+        <div class="text-center mt-4">
+            <button class="btn btn-primary">Adicionar Transação</button>
+            <button class="btn btn-secondary">Ver Relatórios</button>
+        </div>
+
+        <!-- Escondido até os dados do usuário serem carregados -->
+        <div class="usuarioDados d-none">
+            <p>Nome: <span class="nomeUsuario"></span></p>
+            <p>Email: <span class="emailUsuario"></span></p>
+            <p>Telefone: <span class="telefoneUsuario"></span></p>
+        </div>
+    </main>
+
+    <script th:src="@{/js/script.js}"></script>
+    <script th:src="@{/js/sidebar.js}"></script>
+</body>
+
+</html>

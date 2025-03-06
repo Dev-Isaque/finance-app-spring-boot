@@ -10,18 +10,18 @@ function login() {
         contentType: "application/json",
         dataType: "json",
         data: JSON.stringify(userData),
-        success: function(response) {
+        success: function (response) {
             console.log("Resposta do backend:", response);
             alert(response.message);
 
             if (response.userId) {
-                sessionStorage.setItem("userId", response.userId); 
-                window.location.replace("/index");
+                sessionStorage.setItem("userId", response.userId);
+                window.location.replace("/view/index");
             } else {
                 alert("Erro ao login: ID do usuário não encontrado na resposta.");
             }
         },
-        error: function(xhr) {
+        error: function (xhr) {
             console.error("Erro ao login:", xhr.responseText);
             try {
                 let errorMessage = JSON.parse(xhr.responseText).message;
@@ -36,7 +36,8 @@ function login() {
 
 function register() {
     var userData = {
-        name: $("#name").val(),
+        firstName: $("#first_name").val(),
+        lastName: $("#last_name").val(),
         cpf: $("#cpf").val(),
         dataNasc: $("#data_nasc").val(),
         sexo: $("#sexo").val(),
@@ -48,7 +49,7 @@ function register() {
         email: $("#email").val(),
         password: $("#senha").val()
     };
-    
+
 
     $.ajax({
         url: "http://localhost:8080/users/register",
@@ -56,12 +57,12 @@ function register() {
         contentType: "application/json",
         dataType: "json",
         data: JSON.stringify(userData),
-        success: function(response) {
+        success: function (response) {
             console.log("Resposta do backend:", response);
             alert(response.message);
-            window.location.replace("/login");
+            window.location.replace("/auth/login");
         },
-        error: function(xhr) {
+        error: function (xhr) {
             console.error("Erro ao registrar:", xhr.responseText);
             try {
                 let errorMessage = JSON.parse(xhr.responseText).message;

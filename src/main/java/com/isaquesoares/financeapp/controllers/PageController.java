@@ -9,39 +9,39 @@ public class PageController {
 
     @GetMapping("/")
     public String showLoginPage() {
-        return "login";
+        return "/auth/login";
     }
 
-    @GetMapping("/login")
+    @GetMapping("/auth/login")
     public String showLoginPageAgain() {
-        return "login";
+        return "auth/login";
     }
 
-    @GetMapping("/esqueci-senha")
+    @GetMapping("/auth/esqueci-senha")
     public String showEsqueciSenhaPage() {
-        return "esqueci-senha";
+        return "auth/esqueci-senha";
     }
 
-    @GetMapping("/register")
+    @GetMapping("/auth/register")
     public String showRegisterPage() {
-        return "register";
+        return "auth/register";
     }
 
-    @GetMapping("/index")
+    @GetMapping("/view/index")
     public String showIndexPage(Model model) {
         model.addAttribute("title", "Dashboard - FinanceApp");
-        return "index";
+        return "/view/index";
     }
 
-    @GetMapping("/adicionar-transacao")
+    @GetMapping("/view/adicionar-transacao")
     public String showAdicionarTransacaoPage(Model model) {
         model.addAttribute("title", "Adiconar Transação - FinanceApp");
-        return "adicionar-transacao";
+        return "view/adicionar-transacao";
     }
 
-    @GetMapping("/visualizar-transacao")
+    @GetMapping("/view/visualizar-transacao")
     public String showVisualizarTransacaoPage(Model model) {
         model.addAttribute("title", "Visualizar Transação - FinanceApp");
-        return "visualizar-transacao";
+        return "view/visualizar-transacao";
     }
 }
