@@ -30,9 +30,9 @@ function salvarTransacao() {
         contentType: "application/json",
         data: JSON.stringify(formData),
         success: function () {
-            $("#transacaoForm")[0].reset();  // Reseta os campos
+            $("#transacaoForm")[0].reset();  
             mostrarMensagem("Transação salva com sucesso!", "success");
-            $("#transacaoForm input:first").focus(); // Foca no primeiro campo do formulário
+            $("#transacaoForm input:first").focus(); 
         },
         error: function (xhr) {
             let errorMsg = "Erro ao salvar a transação!";
